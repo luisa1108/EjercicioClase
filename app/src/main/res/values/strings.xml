@@ -4,4 +4,5 @@
     <string name="btn1">Ingresar</string>
     <string name="btn2">Login</string>
     <string name="enviar">Enviar</string>
+    <string name="btnAlarma">Alarma</string>
 </resources>

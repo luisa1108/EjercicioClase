@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView nombreUser;
-    Button btn1, btn2, btnEnviar;
+    Button btn1, btn2, btnEnviar, btnAlarma;
     String Tag = "Prueba";
     boolean late = true;
 
@@ -101,8 +101,18 @@ public class MainActivity extends AppCompatActivity {
         nombreUser = (TextView) findViewById(R.id.Usuario);
         nombreUser.setText("Estoy en OnDestroy");
     }
-
-    public double CalcularArea(int l1, int l2) {
-        return l1 * l2;
+    public void createAlarm(String message, int hour, int minutes) {
+        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
+                .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+                .putExtra(AlarmClock.EXTRA_HOUR, hour)
+                .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
+
+
+    /*public double CalcularArea(int l1, int l2) {
+        return l1 * l2;
+    }*/
 }
